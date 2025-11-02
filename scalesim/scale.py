@@ -50,7 +50,6 @@ if __name__ == '__main__':
         save_space = False
     else:
         save_space = True
-   
 
     s = scalesim(save_disk_space=False,
                  verbose=True,

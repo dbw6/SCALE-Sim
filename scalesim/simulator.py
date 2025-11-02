@@ -250,7 +250,21 @@ class simulator:
 
         total_cycles = 0
         for layer_obj in self.single_layer_sim_object_list:
-            cycles_this_layer = int(layer_obj.get_compute_report_items[0])
+            cycles_this_layer = int(layer_obj.get_compute_report_items()[0])
             total_cycles += cycles_this_layer
 
         return total_cycles
+    
+    def get_compute_cycles(self):
+        """
+        Method which aggregates the compute cycles across all the layers for
+        the given workload.
+        """
+        assert self.all_layer_run_done, 'Layer runs are not done yet'
+
+        compute_cycles = 0
+        for layer_obj in self.single_layer_sim_object_list:
+            cycles_this_layer = int(layer_obj.get_compute_report_items()[1])
+            compute_cycles += cycles_this_layer
+
+        return compute_cycles

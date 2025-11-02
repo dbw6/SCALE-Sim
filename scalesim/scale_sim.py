@@ -205,3 +205,17 @@ class scalesim:
             return
 
         return self.runner.get_total_cycles()
+
+    #
+    def get_compute_cycles(self):
+        """
+        Method to get the compute cycles for the workload once the simulation is completed.
+        """
+        me = 'scale.' + 'get_compute_cycles()'
+        if not self.run_done_flag:
+            message = 'ERROR: ' + me
+            message += ' : Cannot determine compute cycles. Run the simulation first'
+            print(message)
+            return
+
+        return self.runner.get_compute_cycles()
